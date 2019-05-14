@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
-        String version = "0.0.0.SNAPSHOT";
+        String version = "0.0.0-SNAPSHOT";
 
         // counter initializer
         int first = 0;
