@@ -5,13 +5,14 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.HashSet;
 
 public class Main {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
-        String version = "0.0.0-SNAPSHOT";
+        String version = "";
 
         // counter initializer
         int first = 0;
@@ -22,10 +23,10 @@ public class Main {
         HashSet<String> set = new HashSet<>();
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(version.getBytes(StandardCharsets.UTF_8));
-        byte[] shortHash = Arrays.copyOfRange(hash, 0,5);
+        byte[] shortHash = Arrays.copyOfRange(hash, 0,3);
         //-------END of SHA-256--------
         // ???? dont know if needed
-        //byte[] encodedBytes = Base64.getEncoder().encode(foobar2);
+        byte[] encodedBytes = Base64.getUrlEncoder().encode(shortHash);
         // ????
         int counter = 0;
 
@@ -34,7 +35,7 @@ public class Main {
             counter++;
             version = first + "." + second + "." + third + ((snapshot == 0) ? "-SNAPSHOT" : "");
             hash = digest.digest(version.getBytes(StandardCharsets.UTF_8));
-            shortHash = Arrays.copyOfRange(hash, 0, 5);
+            shortHash = Arrays.copyOfRange(hash, 0, 3);
 
             //dont know if needed
             //encodedBytes = Base64.getEncoder().encode(foobar2);
