@@ -1,5 +1,5 @@
 # dupeHash
-# Heading 1 #Version hash challenge in java
+# Version hash challenge in java
 
 * iterates all possible versions in order where version is defined as x.x.x-SNAPSHOT  
 * x's are integers from 0-99 (except for the leftmost x which is 0-infinity)  
